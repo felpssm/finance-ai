@@ -23,7 +23,7 @@ const Home = async ({ searchParams: { month } }: HomeProps) => {
 
   const MonthIsInvalid = !month || !isMatch(month, "MM");
   if (MonthIsInvalid) {
-    redirect("/?month=01");
+    redirect(`/?month=${new Date().getMonth() + 1}`);
   }
   const dashboard = await getDashboard(month);
   return (
