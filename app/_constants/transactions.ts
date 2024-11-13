@@ -104,6 +104,10 @@ export const TRANSACTION_CATEGORY_OPTIONS = [
     label: TRANSACTION_CATEGORY_LABELS[TransactionCategory.HEALTH],
   },
   {
+    value: TransactionCategory.HOUSING,
+    label: TRANSACTION_CATEGORY_LABELS[TransactionCategory.HOUSING],
+  },
+  {
     value: TransactionCategory.OTHER,
     label: TRANSACTION_CATEGORY_LABELS[TransactionCategory.OTHER],
   },

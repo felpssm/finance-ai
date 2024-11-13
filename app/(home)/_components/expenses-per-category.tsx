@@ -4,13 +4,13 @@ import { ScrollArea } from "@/app/_components/ui/scroll-area";
 import { TRANSACTION_CATEGORY_LABELS } from "@/app/_constants/transactions";
 import { TotalExpensePerCategory } from "@/app/_data/get-dashboard/types";
 
-interface ExpensePerCategoryProps {
+interface ExpensesPerCategoryProps {
   expensesPerCategory: TotalExpensePerCategory[];
 }
 
-const ExpensePerCategory = ({
+const ExpensesPerCategory = ({
   expensesPerCategory,
-}: ExpensePerCategoryProps) => {
+}: ExpensesPerCategoryProps) => {
   return (
     <ScrollArea className="col-span-2 h-full rounded-md border pb-6">
       <CardHeader>
@@ -24,7 +24,7 @@ const ExpensePerCategory = ({
               <p className="text-sm font-bold">
                 {TRANSACTION_CATEGORY_LABELS[category.category]}
               </p>
-              <p className="text-sm font-bold">{category.percentageOfTotal}</p>
+              <p className="text-sm font-bold">{category.percentageOfTotal}%</p>
             </div>
             <Progress value={category.percentageOfTotal} />
           </div>
@@ -34,4 +34,4 @@ const ExpensePerCategory = ({
   );
 };
 
-export default ExpensePerCategory;
+export default ExpensesPerCategory;

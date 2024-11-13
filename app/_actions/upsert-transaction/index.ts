@@ -10,7 +10,7 @@ import {
 import { upsertTransactionSchema } from "./schema";
 import { revalidatePath } from "next/cache";
 
-interface upsertTransactionParams {
+interface UpsertTransactionParams {
   id?: string;
   name: string;
   amount: number;
@@ -20,7 +20,7 @@ interface upsertTransactionParams {
   date: Date;
 }
 
-export const upsertTransaction = async (params: upsertTransactionParams) => {
+export const upsertTransaction = async (params: UpsertTransactionParams) => {
   upsertTransactionSchema.parse(params);
   const { userId } = await auth();
   if (!userId) {
@@ -33,6 +33,5 @@ export const upsertTransaction = async (params: upsertTransactionParams) => {
       id: params?.id ?? "",
     },
   });
-
   revalidatePath("/transactions");
 };

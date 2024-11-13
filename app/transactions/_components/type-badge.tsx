@@ -5,6 +5,7 @@ import { CircleIcon } from "lucide-react";
 interface TransactionTypeBadgeProps {
   transaction: Transaction;
 }
+
 const TransactionTypeBadge = ({ transaction }: TransactionTypeBadgeProps) => {
   if (transaction.type === TransactionType.DEPOSIT) {
     return (

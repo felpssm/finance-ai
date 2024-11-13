@@ -2,13 +2,7 @@
 
 import { Pie, PieChart } from "recharts";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/app/_components/ui/card";
+import { Card, CardContent } from "@/app/_components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -67,10 +61,6 @@ const TransactionsPieChart = ({
   ];
   return (
     <Card className="flex flex-col p-6">
-      <CardHeader className="items-center pb-0">
-        <CardTitle>Gráfico Do Mês</CardTitle>
-        <CardDescription></CardDescription>
-      </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
@@ -89,6 +79,7 @@ const TransactionsPieChart = ({
             />
           </PieChart>
         </ChartContainer>
+
         <div className="space-y-3">
           <PercentageItem
             icon={<TrendingUpIcon size={16} className="text-primary" />}

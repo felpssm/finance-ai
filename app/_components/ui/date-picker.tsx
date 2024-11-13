@@ -15,7 +15,7 @@ interface DatePickerProps {
   onChange?: SelectSingleEventHandler;
 }
 
-export function DatePicker({ value, onChange }: DatePickerProps) {
+export const DatePicker = ({ value, onChange }: DatePickerProps) => {
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -49,4 +49,4 @@ export function DatePicker({ value, onChange }: DatePickerProps) {
       </PopoverContent>
     </Popover>
   );
-}
+};

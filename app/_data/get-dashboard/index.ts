@@ -59,8 +59,7 @@ export const getDashboard = async (month: string) => {
       (Number(investmentsTotal || 0) / Number(transactionsTotal)) * 100,
     ),
   };
-
-  const TotalExpensePerCategory: TotalExpensePerCategory[] = (
+  const totalExpensePerCategory: TotalExpensePerCategory[] = (
     await db.transaction.groupBy({
       by: ["category"],
       where: {
@@ -78,20 +77,18 @@ export const getDashboard = async (month: string) => {
       (Number(category._sum.amount) / Number(expensesTotal)) * 100,
     ),
   }));
-
   const lastTransactions = await db.transaction.findMany({
     where,
     orderBy: { date: "desc" },
-    take: 10,
+    take: 15,
   });
-
   return {
     balance,
     depositsTotal,
     investmentsTotal,
     expensesTotal,
     typesPercentage,
-    TotalExpensePerCategory,
-    lastTransactions,
+    totalExpensePerCategory,
+    lastTransactions: JSON.parse(JSON.stringify(lastTransactions)),
   };
 };
